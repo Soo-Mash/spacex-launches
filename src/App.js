@@ -128,13 +128,13 @@ function App() {
         <div>
 
             <Container>
-                <p>Total Launches: {data["totalDocs"]}</p>
-                {data["docs"] ? (
+                <p>Total Launches: {data.totalDocs}</p>
+                {data.docs ? (
                     <div>
-                        <Launches launches={data["docs"]}/>
-                        <p>Page {data["page"]} / {data["totalPages"]} </p>
+                        <Launches launches={data.docs}/>
+                        <p>Page {data["page"]} / {data.totalPages} </p>
                         <Button variant="outlined" onClick={prevPage} disabled={currentPage === 1}>Prev Page</Button>
-                        <Button variant="outlined" onClick={nextPage} disabled={currentPage === data["totalPages"]}>Next
+                        <Button variant="outlined" onClick={nextPage} disabled={currentPage === data.totalPages}>Next
                            Page</Button>
 
                    </div>
