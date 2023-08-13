@@ -2,10 +2,17 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import Launches from './components/Launches';
 import { Button, Container } from '@mui/material';
+import Card from '@mui/material/Card';
+import { LoadingButton } from '@mui/lab';
+import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
+import ArrowBackIos from '@mui/icons-material/ArrowBackIos';
+import paginationDirection from './utilities/enums';
 
 function App() {
    const [data, setData] = useState([]);
    const [currentPage, setCurrentPage] = useState(1);
+   const [previousLoading, setPreviousLoading] = useState(false);
+   const [nextLoading, setNextLoading] = useState(false);
    const apiUrl = 'https://api.spacexdata.com/v4/launches/query';
 
    function getQueryBody(pageNumber) {
@@ -87,8 +94,10 @@ function App() {
       };
    }
 
-   const fetchData = async (pageNumber) => {
+   const fetchData = async (pageNumber, direction) => {
       try {
+         if (direction === paginationDirection.next) setNextLoading(true);
+         if (direction === paginationDirection.previous) setPreviousLoading(true);
          const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
@@ -99,11 +108,15 @@ function App() {
 
          if (!response.ok) {
             console.log('Network response was not ok');
+            setNextLoading(false);
+            setPreviousLoading(false);
          }
 
          const responseData = await response.json();
          console.log(responseData);
          setData(responseData);
+         setNextLoading(false);
+         setPreviousLoading(false);
       } catch (error) {
          console.error('Error fetching data:', error);
       }
@@ -115,29 +128,46 @@ function App() {
 
    const nextPage = () => {
       setCurrentPage(currentPage + 1);
-      fetchData(currentPage + 1);
+      fetchData(currentPage + 1, 'next');
    };
    const prevPage = () => {
       setCurrentPage(currentPage - 1);
-      fetchData(currentPage - 1);
+      fetchData(currentPage - 1, 'prev');
    };
 
    return (
-      <div>
-         <Container>
-            <p>Total Launches: {data.totalDocs}</p>
+      <div className="App">
+         <Container className="mainContainer">
+            <Card>Total Launches: {data.totalDocs}</Card>
             {data.docs ? (
                <div>
                   <Launches launches={data.docs} />
-                  <p>
-                     Page {data['page']} / {data.totalPages}
-                  </p>
-                  <Button variant="outlined" onClick={prevPage} disabled={currentPage === 1}>
-                     Prev Page
-                  </Button>
-                  <Button variant="outlined" onClick={nextPage} disabled={currentPage === data.totalPages}>
-                     Next Page
-                  </Button>
+                  <div className="paginationContainer">
+                     <Card className="pageCounter">
+                        {data['page']} / {data.totalPages}
+                     </Card>
+                     <LoadingButton
+                        loading={previousLoading}
+                        variant="contained"
+                        onClick={prevPage}
+                        disabled={currentPage === 1}
+                        className="button"
+                        startIcon={<ArrowBackIos />}
+                     >
+                        Prev
+                     </LoadingButton>
+
+                     <LoadingButton
+                        loading={nextLoading}
+                        variant="contained"
+                        onClick={nextPage}
+                        disabled={currentPage === data.totalPages}
+                        className="button"
+                        endIcon={<ArrowForwardIos />}
+                     >
+                        Next
+                     </LoadingButton>
+                  </div>
                </div>
             ) : (
                <div>Loading...</div>
