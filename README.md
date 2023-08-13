@@ -1,8 +1,39 @@
 # Frontend Developer Tech Test
 
-The primary focus on this repository was for styling to be unique & eye-catching, UX to be functional and logical, and performance high.
+The primary focus on this repository was for styling to be unique & eye-catching, UX to be functional and logical, and performance high. Please run the code as per instructions at the end of this document to view the complete application, and see snippets near the end.
 
-Some notable additional efforts were made to adhere not only to personal preferences
+Notable additional efforts were made to adhere not only to personal coding style & preferences, but also to industry standards. This repo was treated **as though it was a production-connected codebase with releases patterns & the relevant git standards & code quality.**
+
+**CODE:**
+- Code is adheres to KISS & DRY principles, with each piece of functional logic contained within their own functional component or function declaration.
+- CSS classnames are descriptive and understandable
+- Component & function names are understandable, low cognitive load for maintainance.
+- Prettier code formatter was utilised to further improve readibility & mantainibility of the rpo, a
+- Unused imports, variable definitions & all console errors were dealt with to keep the repo clean and minimalist
+
+**Frontend considerations**
+Special considerations were made for usability, modernity & accessibility of the web-app:
+- fully responsive for all screen sizes, from desktop to mobile
+- High contrast text/background for the vision-impaired
+- Use of materialUI components where possible to make use to built-in aria accesibility items (such as hover animations, focus animations, aria-labels)
+- chosen aesthetic follows modern frontend design standards, such as the use of glassmorphic cards, high quality full width images, fully responsive components, hover animations, etc
+
+**CI/CD**
+- Pull requests were chunked logically according to feature or component (See PR & branch history for evidence of this - no pull requests or branches were deleted for this purpose)
+- Pull requests had full descriptions of changes, checklists & relevant tags
+- Git branching & merging followed standard **feature branch** -> **develop branch** -> **main branch** pattern
+- After each release to the main branch, the branch was tagged witg a version number following the **major.minor.patch** pattern, and auto-generated release notes were included for each
+
+
+
+
+DESKTOP:
+
+![image](https://github.com/SooMash/spacex-launches/assets/100480504/2fecc9a7-54d0-46d2-b894-3925afaf60ba)
+MOBILE:
+
+![image](https://github.com/SooMash/spacex-launches/assets/100480504/900bb2e6-6028-436e-884e-6b3fbb33d86c)
+
 
 Below is an example launch object:
 
