@@ -1,3 +1,22 @@
 .App {
-  text-align: center;
+   text-align: center;
+}
+
+.mainContainer {
+   padding: 10px;
+}
+
+.paginationContainer {
+   .button {
+      margin: 0 10px 0 10px;
+      width: 95px;
+   }
+   .pageCounter {
+      margin: auto;
+      padding-left: 8px;
+      padding-right: 8px;
+      margin-bottom: 8px;
+      margin-top: 8px;
+      width: max-content;
+   }
 }
