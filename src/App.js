@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Launches from './components/Launches';
-import { Button, Container } from '@mui/material';
+import { Container } from '@mui/material';
 import Card from '@mui/material/Card';
 import { LoadingButton } from '@mui/lab';
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
@@ -165,9 +165,10 @@ function App() {
 
    return (
       <div className="App" style={{ backgroundImage: `url(${spacexBackgroundImageUrls[backgroundImageIndex]})` }}>
-         <Container className="mainContainer">
+         <Container className="mainContainer" maxWidth="md">
             <img src={SpacexLogo} className="spacexBackgroundLogo" />
-            <Card>Total Launches: {data.totalDocs}</Card>
+
+            <Card className="launchCounter">Total Launches: {data.totalDocs}</Card>
             {data.docs ? (
                <div>
                   <Launches launches={data.docs} />
