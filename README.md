@@ -23,7 +23,7 @@ Special considerations were made for usability, modernity & accessibility of the
 - Pull requests were chunked logically according to feature or component (See PR & branch history for evidence of this - no pull requests or branches were deleted for this purpose)
 - Pull requests had full descriptions of changes, checklists & relevant tags
 - Git branching & merging followed standard **feature branch** -> **develop branch** -> **main branch** pattern
-- After each release to the main branch, the branch was tagged witg a version number following the **major.minor.patch** pattern, and auto-generated release notes were included for each
+- After each release to the main branch, the branch was tagged with a version number following the **major.minor.patch** pattern, and auto-generated release notes were included for each
 
 
 
