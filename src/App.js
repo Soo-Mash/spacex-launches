@@ -7,13 +7,32 @@ import { LoadingButton } from '@mui/lab';
 import ArrowForwardIos from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIos from '@mui/icons-material/ArrowBackIos';
 import paginationDirection from './utilities/enums';
+import SpacexLogo from './images/SpaceX-Logo.svg';
+import SpacexImg1 from './images/spacex-unsplash2.jpg';
+import SpacexImg2 from './images/spacex-unsplash.jpg';
+import SpacexImg3 from './images/spacex-unsplash3.jpg';
+import SpacexImg4 from './images/spacex-unsplash4.jpg';
+import SpacexImg5 from './images/spacex-unsplash5.jpg';
+import SpacexImg6 from './images/spacex-unsplash6.jpg';
+import SpacexImg7 from './images/spacex-unsplash7.png';
 
 function App() {
    const [data, setData] = useState([]);
    const [currentPage, setCurrentPage] = useState(1);
    const [previousLoading, setPreviousLoading] = useState(false);
    const [nextLoading, setNextLoading] = useState(false);
+   const [backgroundImageIndex, setBackgroundImageIndex] = useState(0);
    const apiUrl = 'https://api.spacexdata.com/v4/launches/query';
+
+   const spacexBackgroundImageUrls = [
+      SpacexImg1,
+      SpacexImg2,
+      SpacexImg3,
+      SpacexImg4,
+      SpacexImg5,
+      SpacexImg6,
+      SpacexImg7,
+   ];
 
    function getQueryBody(pageNumber) {
       return {
@@ -122,22 +141,32 @@ function App() {
       }
    };
 
-   useEffect(() => {
-      fetchData(currentPage);
-   }, []);
-
    const nextPage = () => {
       setCurrentPage(currentPage + 1);
       fetchData(currentPage + 1, 'next');
+      imageSlideShowIncrement(paginationDirection.next);
    };
    const prevPage = () => {
       setCurrentPage(currentPage - 1);
       fetchData(currentPage - 1, 'prev');
+      imageSlideShowIncrement(paginationDirection.previous);
    };
 
+   const imageSlideShowIncrement = (direction) => {
+      if (direction === paginationDirection.next)
+         setBackgroundImageIndex((backgroundImageIndex + 1) % spacexBackgroundImageUrls.length);
+      if (direction === paginationDirection.previous)
+         setBackgroundImageIndex((backgroundImageIndex - 1) % spacexBackgroundImageUrls.length);
+   };
+
+   useEffect(() => {
+      fetchData(currentPage);
+   }, []);
+
    return (
-      <div className="App">
+      <div className="App" style={{ backgroundImage: `url(${spacexBackgroundImageUrls[backgroundImageIndex]})` }}>
          <Container className="mainContainer">
+            <img src={SpacexLogo} className="spacexBackgroundLogo" />
             <Card>Total Launches: {data.totalDocs}</Card>
             {data.docs ? (
                <div>

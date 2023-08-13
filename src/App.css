@@ -1,9 +1,24 @@
 .App {
    text-align: center;
+   min-height: 100vh;
+   background-attachment: fixed;
+   background-size: cover;
+   background-position: center;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   -webkit-transition: background-image 2s ease-in-out;
+   -moz-transition: background-image 2s ease-in-out;
+   -o-transition: background-image 2s ease-in-out;
+   transition: background-image 2s ease-in-out;
 }
 
 .mainContainer {
    padding: 10px;
+
+   .spacexBackgroundLogo {
+      margin: 16px;
+   }
 }
 
 .paginationContainer {
