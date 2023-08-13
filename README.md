@@ -1,20 +1,8 @@
 # Frontend Developer Tech Test
 
-You have been provided with a complete API that returns an array of successful SpaceX launches.
+The primary focus on this repository was for styling to be unique & eye-catching, UX to be functional and logical, and performance high.
 
-Pagination is already handled for you in app.js, this can be enhanced if you wish
-
-Currently, the app displays the following:
-
-![img.png](img.png)
-
-Your task is to style this information in whatever way you feel.  Have fun and show off your frontend skills!
-
-### Restrictions!
-
- - MaterialUI, momentJS, moment-timezone and your own CSS and JS skills are all you can use
- - Do not play with the API call - data is the data!
- - Do not spend more than 3 hours on this
+Some notable additional efforts were made to adhere not only to personal preferences
 
 Below is an example launch object:
 
