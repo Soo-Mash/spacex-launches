@@ -16,7 +16,8 @@ Special considerations were made for usability, modernity & accessibility of the
 - fully responsive for all screen sizes, from desktop to mobile
 - High contrast text/background for the vision-impaired
 - Use of materialUI components where possible to make use to built-in aria accesibility items (such as hover animations, focus animations, aria-labels)
-- chosen aesthetic follows modern frontend design standards, such as the use of glassmorphic cards, high quality full width images, fully responsive components, hover animations, etc
+- chosen aesthetic follows modern frontend design standards, such as the use of glassmorphic cards, high quality full width images, fully responsive components, hover animations, minimalist & clear branding etc
+- Clear indication of loading state on pagination buttons when call to action items are clicked (use artificial network throttling in dev-tools to see this in action)
 
 **CI/CD**
 - Pull requests were chunked logically according to feature or component (See PR & branch history for evidence of this - no pull requests or branches were deleted for this purpose)
