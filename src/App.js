@@ -111,7 +111,7 @@ function App() {
 
    useEffect(() => {
       fetchData(currentPage);
-   });
+   }, []);
 
    const nextPage = () => {
       setCurrentPage(currentPage + 1);
