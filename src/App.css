@@ -18,13 +18,26 @@
 
    .spacexBackgroundLogo {
       margin: 16px;
+      margin-bottom: 4px;
+   }
+   .launchCounter {
+      margin: auto;
+      padding-left: 8px;
+      padding-right: 8px;
+      margin-bottom: 16px;
+      margin-top: 8px;
+      width: max-content;
+      background-color: rgba(250, 250, 250, 0.6);
    }
 }
 
 .paginationContainer {
+   position: sticky;
+   bottom: 10px;
    .button {
       margin: 0 10px 0 10px;
       width: 95px;
+      background-color: rgba(11, 94, 177, 0.838);
    }
    .pageCounter {
       margin: auto;
@@ -33,5 +46,6 @@
       margin-bottom: 8px;
       margin-top: 8px;
       width: max-content;
+      background-color: rgba(250, 250, 250, 0.6);
    }
 }
