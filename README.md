@@ -1,4 +1,4 @@
-# Frontend Developer Tech Test
+# Frontend Developer Showcase
 
 The primary focus on this repository was for styling to be unique & eye-catching, UX to be functional and logical, and performance high. Please run the code as per instructions at the end of this document to view the complete application, and see snippets near the end.
 
