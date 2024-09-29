@@ -8,7 +8,7 @@ Notable additional efforts were made to adhere not only to personal coding style
 - Code is adheres to KISS & DRY principles, with each piece of functional logic contained within their own functional component or function declaration.
 - CSS classnames are descriptive and understandable
 - Component & function names are understandable, low cognitive load for maintainance.
-- Prettier code formatter was utilised to further improve readibility & mantainibility of the rpo, a
+- Prettier code formatter was utilised to further improve readibility & mantainibility of the repo
 - Unused imports, variable definitions & all console errors were dealt with to keep the repo clean and minimalist
 
 **Frontend considerations**
